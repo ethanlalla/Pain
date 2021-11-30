@@ -70,4 +70,20 @@ if (idCardArray[index].expired == false) {
     return "Denied";
   }
 
-
+  this.checkStatus = fucntion(index){
+      if(idCardArray[index].expiry == true){
+          return 'ID CARD EXPIRED PLEASE RENEW';
+      }else if(idCardArray[index].name == this.name){
+          return 'NAMES DO NOT MATCH';
+      }else if(!this.firstDose){
+          return 'YOU HAVE NOT BEEN VACCINATED';
+      }else if(!this.secondDose){
+          return 'YOU DO NOT HAVE SECOND VACCINE';
+      }else if(this.checkDays() < 14){
+          return '14 DAYS HAVE NOT PASSED SINCE SECOND DOSE'
+      }else{
+          return 'YOU ARE FULLY VACCINATED'
+      }
+  }
+  
+    
