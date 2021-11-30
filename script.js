@@ -43,13 +43,14 @@ function idCard(expiryDate, name) {
 
   //create array for customer vacc card.
 
-  var person1 = new vaccCard('Chris Oneal', '2021/06/03');
-  var person2 = new vaccCard('Joshua Tomar', '2021/30/11');
-  var person3 = new vaccCard('Zach Hadel', '2021/08/03');
-  var person4 = new vaccCard('Lyle Rath', '2022/06/05');
-  var person5 = new vaccCard('Julian DingDong', '2021/10/08');
+  var person1Vacc = new vaccCard('Chris Oneal', '2021/06/03');
+  var person2Vacc = new vaccCard('Joshua Tomar', '2021/30/11');
+  var person3Vacc = new vaccCard('Zach Hadel', '2021/08/03');
+  var person4Vacc = new vaccCard('Lyle Rath', '2022/06/05');
+  var person5Vacc = new vaccCard('Julian DingDong', '2021/10/08');
 
-var vaccCardArray = [person1, person2, person3, person4, person5]
+var vaccCardArray = [person1Vacc, person2Vacc, person3Vacc, person4Vacc, person5Vacc]
+
 
 if (idCardArray[index].expired == false) {
     if (idCardArray[index].name == this.name) {
@@ -68,6 +69,5 @@ if (idCardArray[index].expired == false) {
   } else {
     return "Denied";
   }
-
 
 
