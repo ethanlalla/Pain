@@ -5,8 +5,8 @@ function idCard(expiryDate, name) {
     this.expiryDate = new Date(expiryDate);
     this.today = new Date();
     this.checkExpiry = function() {
-      var differnece = this.today.getTime() - thisexpiryDate.getTime();
-      var sign = Math.sign(difference);
+      this.differenece = this.today.getTime() - thisexpiryDate.getTime();
+      this.sign = Math.sign(difference);
       if (sign == -1) {
         return true
       } else if (sign == 1) {
@@ -39,19 +39,24 @@ function idCard(expiryDate, name) {
         return difference;
     }
 
+
     this.idMatch = function(index) {
         if (idCardArray[index].name == this.name){
             return true;
         } else {
             return false;
         }
+
     }
-}
+    this.checkDays = function(){
+        this.difference = this.today.getTime() - this.secondDose.getTime();
+        difference = Math.floor(difference / 86400000);
+        return difference;
+    }
+    
 
-
-
-
-  //create array for customer vacc card.
+    
+    //create array for customer vacc card.
 
   var person1Vacc = new vaccCard('Chris Oneal', '2021/06/03');
   var person2Vacc = new vaccCard('Joshua Tomar', '2021/30/11');
@@ -61,52 +66,35 @@ function idCard(expiryDate, name) {
 
 var vaccCardArray = [person1Vacc, person2Vacc, person3Vacc, person4Vacc, person5Vacc]
 
-this.checkDays = function(){
-    this.difference = this.today.getTime() - this.secondDose.getTime();
-    difference = Math.floor(difference / 86400000);
-    return difference;
-}
 
-if (idCardArray[index].expired == false) {
-    if (idCardArray[index].name == this.name) {
-      if (this.vaccinated == true) {
-        if (date >= 14) {
-          return "Allowed";
+    for (var i = 0; i < vaccCardArray.length; i++) {
+        document.write("<tr>")
+        document.write("<td>", idCardArray[i].name, "</td>")
+        document.write("<td>", vaccCardArray[i].checkDifference(i), "</td>")
+        document.write("</tr>")
+
+    if (idCardArray[i].expired == false) {
+        if (idCardArray[i].name == this.name) {
+          if (this.vaccinated == true) {
+            if (date >= 14) {
+              return "Allowed";
+            } else {
+              return "Denied";
+            }
+          } else {
+            return "Denied";
+          }
         } else {
           return "Denied";
         }
       } else {
         return "Denied";
       }
-    } else {
-      return "Denied";
-    }
-  } else {
-    return "Denied";
-  }
 
-  this.checkStatus = function(index){
-      if(idCardArray[index].expiry == true){
-          return 'ID CARD EXPIRED PLEASE RENEW';
-      }else if(idCardArray[index].name == this.name){
-          return 'NAMES DO NOT MATCH';
-      }else if(!this.firstDose){
-          return 'YOU HAVE NOT BEEN VACCINATED';
-      }else if(!this.secondDose){
-          return 'YOU DO NOT HAVE SECOND VACCINE';
-      }else if(this.checkDays() < 14){
-          return '14 DAYS HAVE NOT PASSED SINCE SECOND DOSE'
-      }else{
-          return 'YOU ARE FULLY VACCINATED'
-      }
-  }
-  
-  var vaccCardArrayLength = vaccCardArray.length;
-for (var i = 0; i < vaccCardArray.length; i++) {
-    document.write("<tr>")
-    document.write("<td>", idArray[i].name, "</td>")
-    document.write("<td>", vaccCardArray[i].checkDifference(i), "</td>")
-    document.write("</tr>")
     }
-    
-    
+}
+
+
+
+        
+        
