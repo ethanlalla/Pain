@@ -85,7 +85,7 @@ if (idCardArray[index].expired == false) {
     return "Denied";
   }
 
-  this.checkStatus = fucntion(index){
+  this.checkStatus = function(index){
       if(idCardArray[index].expiry == true){
           return 'ID CARD EXPIRED PLEASE RENEW';
       }else if(idCardArray[index].name == this.name){
@@ -105,8 +105,8 @@ if (idCardArray[index].expired == false) {
 for (var i = 0; i < vaccCardArray.length; i++) {
     document.write("<tr>")
     document.write("<td>", idArray[i].name, "</td>")
-    document.write("<td>", vaxCardArray[i].checkDifference(i), "</td>")
+    document.write("<td>", vaccCardArray[i].checkDifference(i), "</td>")
     document.write("</tr>")
     }
-    }
+    
     
