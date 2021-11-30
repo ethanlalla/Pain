@@ -103,5 +103,10 @@ if (idCardArray[index].expired == false) {
   
   var vaccCardArrayLength = vaccCardArray.length;
 for (var i = 0; i < vaccCardArray.length; i++) {
-
+    document.write("<tr>")
+    document.write("<td>", idArray[i].name, "</td>")
+    document.write("<td>", vaxCardArray[i].checkDifference(i), "</td>")
+    document.write("</tr>")
+    }
+    }
     
