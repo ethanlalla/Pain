@@ -32,6 +32,13 @@ function idCard(expiryDate, name) {
     this.name = name;
     this.firstDose = new Date(firstDose);
     this.secondDose = new Date(secondDose);
+    this.checkDifference = function(){
+        var today = new Date();
+        var difference = today.getTime() - this.secondDose.getTime();
+        difference = Math.floor(difference / 86400000);
+        return difference;
+    }
+
     this.idMatch = function(index) {
         if (idCardArray[index].name == this.name){
             return true;
@@ -40,6 +47,9 @@ function idCard(expiryDate, name) {
         }
     }
 }
+
+
+
 
   //create array for customer vacc card.
 
@@ -51,6 +61,11 @@ function idCard(expiryDate, name) {
 
 var vaccCardArray = [person1Vacc, person2Vacc, person3Vacc, person4Vacc, person5Vacc]
 
+this.checkDays = function(){
+    this.difference = this.today.getTime() - this.secondDose.getTime();
+    difference = Math.floor(difference / 86400000);
+    return difference;
+}
 
 if (idCardArray[index].expired == false) {
     if (idCardArray[index].name == this.name) {
@@ -86,4 +101,7 @@ if (idCardArray[index].expired == false) {
       }
   }
   
+  var vaccCardArrayLength = vaccCardArray.length;
+for (var i = 0; i < vaccCardArray.length; i++) {
+
     
